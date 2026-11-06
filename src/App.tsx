@@ -12,7 +12,25 @@ export default function App() {
   const [checkpoints, setCheckpoints] = useState<Checkpoint[]>(INITIAL_CHECKPOINTS);
   const [nightReports, setNightReports] = useState<NightReportEntry[]>(INITIAL_NIGHT_REPORTS);
   const [isTorchOn, setIsTorchOn] = useState(false);
-
+const [isTorchOn, setIsTorchOn] = useState(false);
+ const [isLoggedIn, setIsLoggedIn] = useState(false);
+const [userRole, setUserRole] = useState<'supervisor' | 'guard'>('guard');
+if (!isLoggedIn) {
+  return (
+    <div style={{padding: 20, textAlign: 'center'}}>
+      <h2>NightGuard Pro Login</h2>
+      <input id="loginId" placeholder="ID - 12345 / 2419" style={{display:'block', margin:'10px auto', padding:10, width:'80%'}} />
+      <input id="loginPass" type="password" placeholder="Password - 12345" style={{display:'block', margin:'10px auto', padding:10, width:'80%'}} />
+      <button onClick={() => {
+        const id = (document.getElementById('loginId') as HTMLInputElement).value;
+        const pass = (document.getElementById('loginPass') as HTMLInputElement).value;
+        if (id === '12345' && pass === '12345') { setUserRole('supervisor'); setIsLoggedIn(true); }
+        else if (id === '2419' && pass === '12345') { setUserRole('guard'); setIsLoggedIn(true); }
+        else alert('Wrong ID / Password');
+      }} style={{padding:'10px 30px'}}>Login</button>
+    </div>
+  );
+}
   // Ramesh is the primary guard logged into the Guard App
   const rameshGuard = guards.find((g) => g.id === 'guard-ramesh') || guards[0];
 
