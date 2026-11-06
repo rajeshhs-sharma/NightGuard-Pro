@@ -12,7 +12,7 @@ export default function App() {
   const [checkpoints, setCheckpoints] = useState<Checkpoint[]>(INITIAL_CHECKPOINTS);
   const [nightReports, setNightReports] = useState<NightReportEntry[]>(INITIAL_NIGHT_REPORTS);
   const [isTorchOn, setIsTorchOn] = useState(false);
-const [isTorchOn, setIsTorchOn] = useState(false);
+
  const [isLoggedIn, setIsLoggedIn] = useState(false);
 const [userRole, setUserRole] = useState<'supervisor' | 'guard'>('guard');
 if (!isLoggedIn) {
