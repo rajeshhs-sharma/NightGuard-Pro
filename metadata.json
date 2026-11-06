@@ -1,0 +1,6 @@
+{
+  "name": "NightGuard Pro",
+  "description": "Smart Security Guard Monitoring System with real-time wake-up check-ins, QR patrol tracking, SOS emergency alerts, and live supervisor dashboard.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

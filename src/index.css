@@ -1,0 +1,75 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+  
+  .font-mono, [data-mono] {
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(0%); }
+  50% { transform: translateY(100%); }
+  100% { transform: translateY(0%); }
+}
+
+@keyframes radarSweep {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes sirenFlash {
+  0%, 100% { background-color: rgba(220, 38, 38, 0.95); }
+  50% { background-color: rgba(30, 10, 10, 0.98); }
+}
+
+@keyframes urgentPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+  50% { transform: scale(1.03); box-shadow: 0 0 25px 8px rgba(239, 68, 68, 0.4); }
+}
+
+@keyframes wakeGlow {
+  0%, 100% { box-shadow: 0 0 15px rgba(34, 197, 94, 0.4); }
+  50% { box-shadow: 0 0 35px rgba(34, 197, 94, 0.85); }
+}
+
+.animate-scanline {
+  animation: scanline 2.2s ease-in-out infinite;
+}
+
+.animate-radar {
+  animation: radarSweep 4s linear infinite;
+}
+
+.animate-siren {
+  animation: sirenFlash 0.6s infinite;
+}
+
+.animate-urgent {
+  animation: urgentPulse 1.2s ease-in-out infinite;
+}
+
+.animate-wake-glow {
+  animation: wakeGlow 2.5s ease-in-out infinite;
+}
+
+/* Custom scrollbars for security dashboard */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #090d16;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f293d;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #374151;
+}
